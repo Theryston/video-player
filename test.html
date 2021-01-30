@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initeal-scale=1.0">
+	<title>Test video-player</title>
+	<style type="text/css" media="all">
+		* {
+			margin: 0px;
+			padding: 0px;
+		}
+	</style>
+</head>
+<body>
+	<div class="test"></div>
+	<script src="index.js"></script>
+	<script>
+		VideoPlayer({
+			selector: '.test',
+			src: 'test.mp4',
+			colors: {
+				primary: 'rgb(0,140,255)',
+				secondary: 'rgb(254,49,49)'
+			}
+		})
+	</script>
+</body>
+</html>
