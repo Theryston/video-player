@@ -15,10 +15,6 @@ const VideoPlayer = (data) => {
 	var Controls = document.createElement('div')
 	Controls.classList.add('controls-video_player')
 	var ButtonPlay = document.createElement('i')
-	var Shadow = document.createElement('div')
-	console.log(ContainerVideoPlayer.style.height)
-	Shadow.classList.add('shadow_video_player')
-	Controls.appendChild(Shadow)
 	ContainerVideoPlayer.classList.add('container-video-player')
 	ContainerVideoPlayer.appendChild(video)
 	var VideoHeight = video.offsetHeight
@@ -28,23 +24,40 @@ const VideoPlayer = (data) => {
 	ButtonPlay.classList.add('button-play-video_player')
 	ButtonPlay.style.color = data.colors.primary
 
-	if (data.styles.width) {
-		ContainerVideoPlayer.style.width = data.styles.width
+
+	if (data.settings.margin) {
+		ContainerVideoPlayer.style.margin = data.settings.margin
 	}
-	
-	if (data.styles.align) {
-		if (data.styles.align == 'left') {
+	if (data.settings.marginTop) {
+		ContainerVideoPlayer.style.marginTop = data.settings.marginTop
+	}
+	if (data.settings.marginLeft) {
+		ContainerVideoPlayer.style.marginLeft = data.settings.marginLeft
+	}
+	if (data.settings.marginRight) {
+		ContainerVideoPlayer.style.marginRight = data.settings.marginRight
+	}
+	if (data.settings.marginBottom) {
+		ContainerVideoPlayer.style.marginBottom = data.settings.marginBottom
+	}
+
+	if (data.settings.width) {
+		ContainerVideoPlayer.style.width = data.settings.width
+	}
+
+	if (data.settings.align) {
+		if (data.settings.align == 'left') {
 			ContainerVideoPlayer.style.marginRight = 'auto'
-		} else if (data.styles.align == 'right') {
+		} else if (data.settings.align == 'right') {
 			ContainerVideoPlayer.style.marginLeft = 'auto'
-		} else if (data.styles.align == 'center') {
+		} else if (data.settings.align == 'center') {
 			ContainerVideoPlayer.style.marginLeft = 'auto'
 			ContainerVideoPlayer.style.marginRight = 'auto'
 		}
 	}
 
 	var ContainerVideoPlayer_width = Number(ContainerVideoPlayer.offsetWidth)/2.8
-	
+
 	ContainerVideoPlayer_width = ContainerVideoPlayer_width.toString()
 
 	var ButtonPlay_fontSize = ContainerVideoPlayer_width+'px'

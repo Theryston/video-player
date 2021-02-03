@@ -21,15 +21,6 @@
 	transition: all .2s;
 }
 
-.controls-video_player .shadow_video_player {
-	z-index: 1;
-	width: 100%;
-	position: absolute;
-	left: 0px;
-	box-shadow: 0px -15px 40px 10px black;
-	bottom: 0px;
-}
-
 @media screen and (max-device-width: 900px) {
 	.container-video-player .button-play-video_player {
 		position: absolute;
