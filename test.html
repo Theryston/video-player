@@ -6,7 +6,7 @@
 	<title>Test video-player</title>
 	<style type="text/css" media="all">
 		* {
-			margin: 50px;
+			margin: 0px;
 			padding: 0px;
 		}
 	</style>
@@ -26,7 +26,10 @@
 		VideoPlayer({
 			selector: '.test',
 			src: 'test.mp4',
-			width: '500px',
+			styles: {
+				width: '90%',
+				align: 'center'
+			},
 			colors: {
 				primary: 'rgb(0,140,255)',
 				secondary: 'rgb(254,49,49)'
@@ -38,7 +41,7 @@
 				eruda.init()
 			}
 		}
-		
+
 		eruda()
 
 	</script>

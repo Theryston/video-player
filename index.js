@@ -28,8 +28,19 @@ const VideoPlayer = (data) => {
 	ButtonPlay.classList.add('button-play-video_player')
 	ButtonPlay.style.color = data.colors.primary
 
-	if (data.width) {
-		ContainerVideoPlayer.style.width = data.width
+	if (data.styles.width) {
+		ContainerVideoPlayer.style.width = data.styles.width
+	}
+	
+	if (data.styles.align) {
+		if (data.styles.align == 'left') {
+			ContainerVideoPlayer.style.marginRight = 'auto'
+		} else if (data.styles.align == 'right') {
+			ContainerVideoPlayer.style.marginLeft = 'auto'
+		} else if (data.styles.align == 'center') {
+			ContainerVideoPlayer.style.marginLeft = 'auto'
+			ContainerVideoPlayer.style.marginRight = 'auto'
+		}
 	}
 
 	var ContainerVideoPlayer_width = Number(ContainerVideoPlayer.offsetWidth)/2.8
