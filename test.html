@@ -6,23 +6,41 @@
 	<title>Test video-player</title>
 	<style type="text/css" media="all">
 		* {
-			margin: 0px;
+			margin: 50px;
 			padding: 0px;
 		}
 	</style>
 </head>
 <body>
+	<p>
+		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+	</p>
+	<br>
 	<div class="test"></div>
+	<br>
+	<p>
+		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+	</p>
 	<script src="index.js"></script>
 	<script>
 		VideoPlayer({
 			selector: '.test',
 			src: 'test.mp4',
+			width: '500px',
 			colors: {
 				primary: 'rgb(0,140,255)',
 				secondary: 'rgb(254,49,49)'
 			}
 		})
+
+		function eruda() {
+			var script = document.createElement('script'); script.src = "//cdn.jsdelivr.net/npm/eruda"; document.body.appendChild(script); script.onload = function () {
+				eruda.init()
+			}
+		}
+		
+		eruda()
+
 	</script>
 </body>
 </html>

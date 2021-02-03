@@ -12,37 +12,58 @@ const VideoPlayer = (data) => {
 	var video = document.createElement('video')
 	video.src = data.src
 	video.classList.add('video-player')
-	var ButtonPlay = document.createElement('i')
 	var Controls = document.createElement('div')
 	Controls.classList.add('controls-video_player')
-	ButtonPlay.classList.add('bi')
-	ButtonPlay.classList.add('bi-play-fill')
-	ButtonPlay.classList.add('button-play-video_player')
-	ButtonPlay.style.color = data.colors.primary
-	var LestClicked = []
-
+	var ButtonPlay = document.createElement('i')
+	var Shadow = document.createElement('div')
+	console.log(ContainerVideoPlayer.style.height)
+	Shadow.classList.add('shadow_video_player')
+	Controls.appendChild(Shadow)
 	ContainerVideoPlayer.classList.add('container-video-player')
 	ContainerVideoPlayer.appendChild(video)
+	var VideoHeight = video.offsetHeight
+	ContainerVideoPlayer.style.height = VideoHeight
+	ButtonPlay.classList.add('bi')
+	ButtonPlay.classList.add('bi-play')
+	ButtonPlay.classList.add('button-play-video_player')
+	ButtonPlay.style.color = data.colors.primary
+
+	if (data.width) {
+		ContainerVideoPlayer.style.width = data.width
+	}
+
+	var ContainerVideoPlayer_width = Number(ContainerVideoPlayer.offsetWidth)/2.8
+	
+	ContainerVideoPlayer_width = ContainerVideoPlayer_width.toString()
+
+	var ButtonPlay_fontSize = ContainerVideoPlayer_width+'px'
+
+	ButtonPlay.style.fontSize = ButtonPlay_fontSize
 
 
 	ButtonPlay.addEventListener('click', () => {
-		//ButtonPlay.style.color = data.colors.secondary
-		ButtonPlay.style.textShadow = '0px 0px 5px black'
+		ButtonPlay.style.textShadow = '0px 0px 35px black'
 
 		setTimeout(() => {
 			ButtonPlay.style.color = data.colors.primary
-			ButtonPlay.style.textShadow = '0px 0px 10px black'
+			ButtonPlay.style.textShadow = '0px 0px 30px black'
 		}, 400)
 
 		if (video.paused) {
 			video.play()
-			ButtonPlay.classList.replace('bi-play-fill', 'bi-pause-fill')
+			ButtonPlay.classList.replace('bi-play', 'bi-pause')
 		} else {
 			video.pause()
-			ButtonPlay.classList.replace('bi-pause-fill', 'bi-play-fill')
+			ButtonPlay.classList.replace('bi-pause', 'bi-play')
 		}
 	})
 
+	var LestClicked = []
+	let opacity0 = false
+	setTimeout(() => {
+		opacity0 = true
+	},
+		4000)
 	ContainerVideoPlayer.addEventListener('click',
 		() => {
 			var DateTime = new Date()
@@ -50,13 +71,18 @@ const VideoPlayer = (data) => {
 
 			Controls.style.opacity = '100%'
 			setInterval(() => {
-				if (LestClicked[LestClicked.length-1] != SecundNow) {
+				if (opacity0) {
+					opacity0 = false
 					Controls.style.opacity = '0%'
+					LestClicked.push(SecundNow)
+					setTimeout(() => {
+						if (Controls.style.opacity != '0%') {
+							opacity0 = true
+						}
+					},
+						4000);
 				}
-			},
-				5000);
-			LestClicked.push(SecundNow)
-			console.log(LestClicked)
+			});
 		})
 
 	setInterval(() => {
